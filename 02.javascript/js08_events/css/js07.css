@@ -1,0 +1,44 @@
+ul {
+  list-style: none;
+}
+h1 {
+  text-align: center;
+}
+form {
+  text-align: center;
+  padding:0;
+  margin: 0 auto;
+  width:300px;
+}
+#name:focus,#major:focus {
+  background-color: yellowgreen;
+}
+li {
+  padding: 10px;
+}
+.delBtn {
+  padding: 5px 10px;
+  position:absolute;
+  right: 10px;
+  border-radius: 20px;
+  background-color: green;
+  color:blanchedalmond;
+}
+.delBtn:hover {
+  cursor: pointer;
+}
+#save {
+  border-radius: 20px;
+  /* padding: 10px 10px; */
+  background-color: black;
+  color:aliceblue;
+  font-size: 1em;
+  width: 100px;
+  height: 60px;
+  text-align:center;
+  margin: auto;
+  display: block;
+}
+td {
+  width: 300px;
+}
