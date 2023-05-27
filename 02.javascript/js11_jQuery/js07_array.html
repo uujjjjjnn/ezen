@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <title>Document</title>
+  <script>
+    // JavaScript : 배열.forEach(() => {})
+    // jQuery     : $.each(() => {}) 또는 $(선택자).each(() => {})
+    $(() => {
+      let array = [
+        {name:'Google', link:'http://www.google.com'},
+        {name:'Amazon', link:'http://www.amazon.com'},
+        {name:'Mozilla', link:'https://developer.mozilla.org/ko/'},
+        {name:'JavaInfo', link:'https://ko.javascript.info/'}
+      ]
+      let output = "";
+      $.each(array,(index, item) => {
+        output += `<a href="${item.link}">${item.name}</a><br>`
+      })  
+      document.body.innerHTML = output;
+      })
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

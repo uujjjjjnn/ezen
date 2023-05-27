@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/cs.css">
+    <title>딩딩쓰 베이커리</title>
+</head>
+<body>
+    <div id="header">
+        <!-- <a href="">신규가입 15% 할인 쿠폰</a>
+        <a href="">[신한카드] 최대 10만원 캐시백</a> -->
+    <nav id="navheader" class="navbar navbar-fixed-top bg-dark navbar-dark">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img src="./img/kakao-talk.png" class="ico"></a></li>
+                <li><a href="https://www.instagram.com"><img src="./img/instagram.png" class="ico"></a></li>
+                <li><a href="https://twitter.com/?lang=ko"><img src="./img/twitter.png" class="ico"></a></li>
+            </ul>
+            <!-- 여기가 기준점 -->
+                <ul class="nav navbar-nav navbar-center">
+                <li><a href="./홈화면.html" class="dropdown-toggle">홈</a></li>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">브랜드 <span class="caret"></span></a>
+                    <ul class="dropdown-menu"> 
+                    <li><a href="#">브랜드 소개</a></li>
+                    <li><a href="#">인재채용</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">메뉴 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="./메뉴.html">신메뉴</a></li>
+                    <li><a href="#">베이커리빵</a></li>
+                    <li><a href="#">샌드위치</a></li>
+                    <li><a href="#">쿠키</a></li>
+                    <li><a href="#">케이크</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">멤버쉽 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="#">멤버쉽 등급</a></li>
+                    <li><a href="#">멤버쉽 혜택</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="dropdown-toggle">이벤트</a></li>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">고객센터 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="#">가맹문의</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">1:1문의</a></li>
+                    <li><a href="./고객의소리.html">고객의소리</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--  -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" class="dropdown-toggle"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>
+                <li><a href="#" class="dropdown-toggle"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+            </ul>
+        </div>
+    </nav> <!-- nav -->
+    </div> <!-- header-->
+    <div id="pop">
+        
+    </div> <!-- pop-->
+
+    <div id="wrap">
+        <!-- banner -->
+        <div id="banner">
+                <ul>
+                    <li><a href="#"><img src="./img/up.png" id="up">TOP</a></li>
+                </ul>
+        </div> <!-- banner -->
+
+        <!-- content -->
+        <div id="content">
+            <!-- 이미지 & 텍스트 -->
+            <div id="center_img"><img id="bread" src="./img/bread.jpg" alt=""></div>
+            <div id="text"><h1>고객의 소리</h1></div>
+            <!-- 이미지 & 텍스트 -->
+
+            <!-- 내용 -->
+            <div id="customer">
+            <br><br>
+            <div id="고객의소리">고객의 소리 <small>빠른 시일 안에 고객님의 이메일과 휴대폰 SMS로 답변 등록을 알려드립니다.</small></div>
+            <form id="form">
+            <table id="sound" style="border:2px solid black;">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td class="blc"> </td>
+                    <td class="td1">문의 유형 선택</td>
+                    <td>
+                        <select id="select_what">
+                            <option>매장서비스</option>
+                            <option>멤버쉽</option>
+                            <option>이벤트</option>
+                            <option>기타</option>
+                        </select>
+                        </td>
+                        <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>이름</td>
+                    <td><input type="text"></td>
+                    <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>연락처</td>
+                    <td><select id="select_phone">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>02</option>
+                        <option>031</option>
+                        <option>032</option>
+                    </select>
+                        - <input type="text" size="4" maxlength="4"> - <input type="text" size="4" maxlength="4"></td>
+                    <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>이메일</td>
+                    <td><input type="text"> @ <input type="text" placeholder="직접 입력" id="email_text">
+                    <select id="select_mail">
+                        <option >직접 입력</option>
+                        <option class="mail" value="gmail.com">gmail.com</option>
+                        <option class="mail" value="naver.com">naver.com</option>
+                        <option class="mail" value="daum.net">daum.net</option>
+                    </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>방문 매장</td>
+                    <td>
+                        <select id="select_where">
+                            <option>방문했던 매장을 선택해주세요</option>
+                            <option>강남</option>
+                            <option>수원</option>
+                            <option>제주</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>방문 일자</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>서비스 만족도</td>
+                    <td>
+                        <input type="radio" name="service"> 매우만족 
+                        <input type="radio" name="service"> 만족 
+                        <input type="radio" name="service"> 보통 
+                        <input type="radio" name="service"> 불만족 
+                        <input type="radio" name="service"> 매우불만족
+                    </td>
+                    <td></td>
+                </tr>
+                <tr style="border-bottom: 0.5px solid gainsboro;">
+                    <td></td>
+                    <td>제목</td>
+                    <td><input type="text" class="제목내용"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>내용</td>
+                    <td><br><input type="text" class="제목내용" id="내용"></td>
+                    <td></td>
+                </tr>
+                <tr style="height: 120px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+            <br><br>
+            <div id="btnDiv">
+            <input id="saveBtn" type="submit" value="문의하기"></input>
+            <input id="cancelBtn" type="reset" value="취소하기"></input>
+            <br><br>
+            </div>
+        </div>
+            </form>
+        </div> <!-- content -->
+
+        <!-- 하단부 내용 -->
+    </div> <!-- wrap -->
+
+    <div id="footer">
+        <p>딩딩쓰 베이커리 대표이사 권유진 / 서울 동대문구 무학로27길 29<br>
+        ®2023 yoojin Kwon</p>
+    </div> <!-- footer -->
+
+<script src="./js/js.js"></script>
+</body>
+</html>
