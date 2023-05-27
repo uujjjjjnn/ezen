@@ -1,0 +1,4 @@
+TITLE=JSP/Servlet Learning
+GREETING=Hello I am honggildong
+USER=Your id is {0}
+AGE=Your age is {1}

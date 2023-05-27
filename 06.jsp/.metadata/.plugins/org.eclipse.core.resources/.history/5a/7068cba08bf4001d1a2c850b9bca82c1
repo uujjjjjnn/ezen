@@ -1,0 +1,12 @@
+package com.lec.web.jdbc;
+
+import java.sql.DriverManager;
+
+public class ConnectionProvider2 {
+
+	private static getConnection2() {
+		return DriverManager.getConnection("jdbc:apache:commons:dpcp:guestbook");
+
+	}
+	
+}

@@ -1,0 +1,13 @@
+실습. mariadb에 scott과 동일하게 emp/dept 테이블 생성
+1. reverse engineering 테이블생성
+2. or 하드코딩
+3. insertMain.java
+-- selectMain.java
+-- UpdataMain.java
+-- DeleteMain.java
+
+mariadb접속정보 
+1. mariadb jdbc를 add build path
+2.  url : jdbc:mariadb://localhost/board 
+    usr : root
+    pwd :  12345

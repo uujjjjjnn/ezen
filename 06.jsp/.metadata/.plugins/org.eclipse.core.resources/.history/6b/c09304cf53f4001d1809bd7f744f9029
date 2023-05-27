@@ -1,0 +1,7 @@
+package com.lec.dbcp;
+
+import javax.servlet.*;
+
+public class DBCPInit extends HttpServlet {
+	
+}

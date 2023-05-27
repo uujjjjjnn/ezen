@@ -1,0 +1,28 @@
+package com.lec.dbcp;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+public class DBCPInit extends HttpServlet {
+	
+	@Override
+	public void init() throws ServletException {
+		
+		loadJDBCDriver();
+		initConnectionPool();
+		
+	}
+
+	private void loadJDBCDriver() {
+		// Class.forName("org.mariadb...");
+		// web.xml에 정의하고 로딩
+		String driverClass = getInitParameter("jdbcDriver");
+		
+	}
+	
+	private void initConnectionPool() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

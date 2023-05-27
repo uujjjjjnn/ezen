@@ -1,0 +1,21 @@
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- jsp01_menu.jsp, jsp01_footer.jsp, jsp01_sub.jsp -->
+	
+	<%@include file="jsp01_menu.jsp" %>
+	
+	<div class="container">
+		<h1>jsp01_main.jsp</h1>
+		<%@include file="jsp01_sub.jsp" %>
+		<h1>include이후의 내용...</h1>
+		
+	</div>
+	<%@include file="jsp01_footer.jsp" %>
+</body>
+</html>

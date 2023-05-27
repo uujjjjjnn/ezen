@@ -1,0 +1,37 @@
+package com.lec.dbcp;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+public class DBCPInit extends HttpServlet {
+	
+	@Override
+	public void init() throws ServletException {
+		
+		loadJDBCDriver();
+		initConnectionPool();
+		
+	}
+
+	private void loadJDBCDriver() {
+		// Class.forName("org.mariadb...");
+		// web.xml에 정의하고 로딩
+		String driverClass = getInitParameter("jdbcDriver");
+		
+		try {
+			Class.forName(driverClass);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException("JDBC드라이버 로딩 실패 = " + 
+					"web.xml 초기화 파라미터 jdbcDriver를 확인하세요");
+		}
+	}
+	
+	private void initConnectionPool() {
+		
+		String url = getInitParameter("url");
+		String usr = getInitParameter("user");
+		String pwd = getInitParameter("pass");
+		
+	}
+
+}

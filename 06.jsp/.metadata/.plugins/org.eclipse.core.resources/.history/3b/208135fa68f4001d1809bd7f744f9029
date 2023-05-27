@@ -1,0 +1,10 @@
+package com.lec.web.model;
+
+public class Message {
+
+	private int id;
+	private String guestName;
+	private String password;
+	private String email;
+	
+}

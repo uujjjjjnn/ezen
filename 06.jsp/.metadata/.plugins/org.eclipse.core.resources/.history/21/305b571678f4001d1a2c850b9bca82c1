@@ -1,0 +1,35 @@
+package com.lec.web.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lec.web.model.Message;
+
+public class MessageDAO {
+
+	// singleton
+	private MessageDAO() {}
+	private static MessageDAO messageDAO = new MessageDAO();
+	public static MessageDAO getInstance() { return messageDAO; }
+	
+	public List<Message> selectList() {
+		
+
+		List<Message> view_data = new ArrayList<>();
+		Message msg = new Message();
+		msg.setId(100);
+		msg.setGuestName("홍길동");
+		msg.setPassword("12345");
+		msg.setEmail("hong@gmail.com");
+		view_data.add(msg);
+		
+		Message msg1 = new Message();
+		msg1.setId(200);
+		msg1.setGuestName("손흥민");
+		msg1.setPassword("12345");
+		msg1.setEmail("sonny@gmail.com");
+		view_data.add(msg1);
+
+		return view_data;
+	}
+}

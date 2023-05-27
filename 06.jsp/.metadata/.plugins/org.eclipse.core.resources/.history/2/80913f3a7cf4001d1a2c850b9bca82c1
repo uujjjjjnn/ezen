@@ -1,0 +1,23 @@
+package com.lec.web.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lec.web.model.Message;
+
+public class MessageDAO {
+
+	// singleton
+	private MessageDAO() {}
+	private static MessageDAO messageDAO = new MessageDAO();
+	public static MessageDAO getInstance() { return messageDAO; }
+	
+	public List<Message> selectList() {
+		
+
+		List<Message> view_data = new ArrayList<>();
+		
+
+		return view_data;
+	}
+}

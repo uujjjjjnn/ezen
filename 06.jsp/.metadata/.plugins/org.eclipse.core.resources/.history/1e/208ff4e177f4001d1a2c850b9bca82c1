@@ -1,0 +1,14 @@
+package com.lec.web.dao;
+
+public class MessageDAO {
+
+	// singleton
+	private MessageDAO() {}
+	private static MessageDAO messageDAO = new MessageDAO();
+	public static MessageDAO getInstance() { return messageDAO; }
+	
+	public void selectList() {
+		// TODO Auto-generated method stub
+
+	}
+}

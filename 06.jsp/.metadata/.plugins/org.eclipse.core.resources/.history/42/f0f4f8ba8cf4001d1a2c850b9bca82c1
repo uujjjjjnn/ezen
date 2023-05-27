@@ -1,0 +1,10 @@
+package com.lec.web.dao;
+
+public class MessageDAO2 {
+
+	private MessageDAO2() {}
+	
+	private static MessageDAO2 messageDAO2 = new MessageDAO2();
+	public static MessageDAO2 getInstance() { return messageDAO2; }
+	
+}

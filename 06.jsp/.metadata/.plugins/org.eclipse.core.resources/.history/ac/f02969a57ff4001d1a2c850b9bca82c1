@@ -1,0 +1,21 @@
+package com.lec.web.service;
+
+import java.sql.Connection;
+
+import com.lec.web.dao.MessageDAO;
+
+public class GetMessageListService {
+
+	// singleton
+	private GetMessageListService() {}
+	private static GetMessageListService instance = new GetMessageListService();
+	public static GetMessageListService getInstance() { return instance; }
+	
+	public void getMessageList() {
+		
+		Connection conn = null;
+		MessageDAO messageDAO = MessageDAO.getInstance();
+		
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.lec.web.model;
+
+public class Message {
+
+}

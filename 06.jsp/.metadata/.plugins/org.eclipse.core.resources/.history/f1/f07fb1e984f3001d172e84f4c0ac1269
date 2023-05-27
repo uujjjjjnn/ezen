@@ -1,0 +1,11 @@
+package com.lec.board;
+
+import java.util.ArrayList;
+
+public class BoardList1 {
+
+	public ArrayList<Board> getBoardList1() {
+		
+		return null;
+	}
+}

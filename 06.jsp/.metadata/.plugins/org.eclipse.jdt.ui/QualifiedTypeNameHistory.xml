@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="java.net.URLDecoder"/>
+    <fullyQualifiedTypeName name="java.net.URLEncoder"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+    <fullyQualifiedTypeName name="com.lec.board.BoardList1"/>
+    <fullyQualifiedTypeName name="com.lec.JDBCConnector"/>
+    <fullyQualifiedTypeName name="com.lec.board.Board"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.ConnectionFactory"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.DriverManagerConnectionFactory"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.PoolableConnectionFactory"/>
+    <fullyQualifiedTypeName name="org.apache.commons.pool2.impl.GenericObjectPoolConfig"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.PoolableConnection"/>
+    <fullyQualifiedTypeName name="org.apache.commons.pool2.impl.GenericObjectPool"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbcp2.PoolingDriver"/>
+    <fullyQualifiedTypeName name="com.lec.web.service.GetMessageList"/>
+    <fullyQualifiedTypeName name="com.lec.web.dao.MessageDAO"/>
+    <fullyQualifiedTypeName name="com.lec.web.service.MessageListView"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.lec.web.jdbc.ConnectionProvider"/>
+    <fullyQualifiedTypeName name="com.lec.web.dao.MessageDAO2"/>
+    <fullyQualifiedTypeName name="com.lec.web.service.GetMessageListService2"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.lec.web.model.Message"/>
+    <fullyQualifiedTypeName name="com.lec.web.jdbc.JDBCUtil"/>
+</qualifiedTypeNameHistroy>

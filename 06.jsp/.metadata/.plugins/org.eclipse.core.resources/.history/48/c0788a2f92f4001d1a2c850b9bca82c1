@@ -1,0 +1,37 @@
+package com.lec.web.service;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.lec.web.dao.MessageDAO2;
+import com.lec.web.jdbc.ConnectionProvider;
+import com.lec.web.model.Message;
+
+public class GetMessageListService2 {
+	
+	private GetMessageListService2() {}
+	private static GetMessageListService2 instance2 = new GetMessageListService2();
+	public static GetMessageListService2 getInstance() { return instance2; }
+
+	public void getMessageList2() {
+		
+
+	
+	Connection conn = null;
+	
+	try {
+		conn = ConnectionProvider.getConnection();
+		MessageDAO2 messageDAO2 = MessageDAO2.getInstance();
+		
+		List<Message> messageList2 = null;
+		messageList2 = messageDAO2.selectList(conn, 0, 10);
+		return messageList2;
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		
+	}
+	return null;
+	}
+}
