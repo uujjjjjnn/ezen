@@ -1,0 +1,20 @@
+실습. mariadb에 회원관리애플리케이션
+
+1) create table member
+
+member_id
+member_pw
+member_name
+member_age
+member_gender
+member_email
+
+메뉴
+1. 신규회원등록
+2. 전체회원조회
+3. 회원상세조회
+4. 회원정보수정
+5. 회원정보삭제
+6. 이름으로 검색
+7. email로 검색
+0. 종료
