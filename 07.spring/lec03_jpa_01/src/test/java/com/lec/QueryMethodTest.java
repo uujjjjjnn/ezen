@@ -92,22 +92,22 @@ public class QueryMethodTest {
 //		}
 //	}	
 	
-	@Test
-	public void testFindByTitleContaining() {
-		
-		Pageable paging = PageRequest.of(0, 5, Sort.Direction.DESC, "seq"); // order by seq desc limit 0, 5
-		Page<Board> pageInfo = boardRepository.findByTitleContaining("제목", paging);
-		
-		System.out.println("페이지사이즈 = " + pageInfo.getSize());
-		System.out.println("총페이지 수  = " + pageInfo.getTotalPages());
-		System.out.println("총레코드 수  = " + pageInfo.getTotalElements());
-		System.out.println("다음페이지   = " + pageInfo.nextPageable());
-		
-		List<Board> boardList = pageInfo.getContent();
-		
-		System.out.println("===> 검색결과");
-		for(Board board:boardList) {
-			System.out.println("---> " + board.toString());
-		}
-	}	
+//	@Test
+//	public void testFindByTitleContaining() {
+//		
+//		Pageable paging = PageRequest.of(0, 5, Sort.Direction.DESC, "seq"); // order by seq desc limit 0, 5
+//		Page<Board> pageInfo = boardRepository.findByTitleContaining("제목", paging);
+//		
+//		System.out.println("페이지사이즈 = " + pageInfo.getSize());
+//		System.out.println("총페이지 수  = " + pageInfo.getTotalPages());
+//		System.out.println("총레코드 수  = " + pageInfo.getTotalElements());
+//		System.out.println("다음페이지   = " + pageInfo.nextPageable());
+//		
+//		List<Board> boardList = pageInfo.getContent();
+//		
+//		System.out.println("===> 검색결과");
+//		for(Board board:boardList) {
+//			System.out.println("---> " + board.toString());
+//		}
+//	}	
 }

@@ -22,18 +22,18 @@ public class BoardRepositoryTest {
 	@Autowired // new BoardRepository() 수동생성 대신에 자동생성 후 주입
 	private BoardRepository boardRepo;
 	
-	@Test
-	public void testInsertBoard() {
-		
-		Board board = new Board();
-		board.setTitle("첫 번째 게시글");
-		board.setWriter("테스터");
-		board.setContent("잘 동작이 될까");
-		board.setCreateDate(new Date());
-		board.setCnt(1L);
-		boardRepo.save(board); // insert into board ..
-
-	}
+//	@Test
+//	public void testInsertBoard() {
+//		
+//		Board board = new Board();
+//		board.setTitle("첫 번째 게시글");
+//		board.setWriter("테스터");
+//		board.setContent("잘 동작이 될까");
+//		board.setCreateDate(new Date());
+//		board.setCnt(1L);
+//		boardRepo.save(board); // insert into board ..
+//
+//	}
 	
 //	@Test
 //	public void testGetBoard() {
@@ -58,7 +58,7 @@ public class BoardRepositoryTest {
 //
 //	}
 	
-//	@Test
+//	@Test // 코드수정해야함
 //	public void testGetBoardList() {
 //		System.out.println("===> " + boardRepo.findAll().iterator().toString());
 //		List<Board> boardList = new ArrayList<Board>();
