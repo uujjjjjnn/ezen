@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<!-- 
+  <form action ="forward위치" 
+  method="get형식 - method안하면 기본이 get방식 / post형식(비밀번호같이 보안걸려야할 내용 숨겨서 서버로 보냄)">
+    <input type="text" name="search">
+    <input type="submit"
+  </form> 
+
+-->
+
+  <h1>input tag</h1>
+  <form action="" method="post">
+  <input type="text" name="userid"><br>
+  <input type="password" name="pass"><br>
+  <input type="file" name="file"><br>
+  <input type="button" name="" value="다음페이지"><br>
+  <input type="hidden" ><br>
+  <input type="image" ><br>
+  <input type="radio" ><br> <!--하나만 선택할 때 (여/남 고르기). 복수로 선택 할 수는 있음-->
+  <input type="checkbox" ><br> <!--여러개 선택할 때 (취미/특기 고르기)-->
+  <input type="submit" value="확인"> <!--submit만 서버로 넘어감-->
+  <input type="reset" value="리셋"> <!--reset은 기재한 내용 다 지워줌. 서버로 안 넘어감-->
+</form>
+<hr>
+
+
+<form action="">
+  <label for="id">이름 : </label>
+<input type="text" id="id"><br> <!--html에서id는 유일해야함. name은 복수 가능-->
+<label for="pw">비밀번호 : </label>
+<input type="password" id="pw">
+</form>
+<hr>
+
+<form action="">
+<input type="color" ><br>
+<input type="date" ><br>
+<input type="datetime" ><br>
+<input type="datetime-local" ><br>
+<input type="email" ><br>
+<input type="month" ><br>
+<input type="number" ><br>
+<input type="range" ><br>
+<input type="search" ><br>
+<input type="tel" ><br>
+<input type="time" ><br>
+<input type="week" ><br>
+<input type="url" ><br>
+<hr>
+</form>
+
+<form action="">
+  <textarea name="" id="" cols="10" rows="5">
+    1. 작성자
+    2. 제목</textarea>
+</form>
+<hr>
+
+<form action="">
+  <select name="food" id="">
+    <option value="A">김밥</option>n <!--서버에는 김밥이 아닌 A가 넘어감-->
+    <option value="B">떡볶이</option>n
+    <option value="C">순대</option>n
+    <option value="D">어묵</option>n
+  </select>
+  <br>
+
+  <select name="food" id="" multiple> <!--여러개 선택할때 multiple. ctrl키 누르면서 마우스클릭-->
+    <option value="A">김밥</option>n 
+    <option value="B">떡볶이</option>n
+    <option value="C">순대</option>n
+    <option value="D">어묵</option>n
+  </select>
+  <br>
+
+  <select name="" id="" multiple="8">
+    <optgroup label="책">
+    <option value="">html5</option>
+    <option value="">css</option>
+  </optgroup>
+    <optgroup label="음식">
+    <option value="A">김밥</option>n 
+    <option value="B">떡볶이</option>n
+    <option value="C">순대</option>n
+    <option value="D">어묵</option>n
+  </optgroup>
+  </select>
+</form>
+
+<form action="">
+  <fieldset>
+    <legend>로그인 양식</legend>
+    <label for="id">아이디</label>
+    <input type="text" id="id">
+    <label for="pw">비밀번호</label>
+    <input type="password" id="pw">
+  </fieldset>
+
+  <fieldset>
+    <legend>로그인 양식</legend>
+    <table>
+      <tr>
+        <td>아이디</td>
+        <td><input type="text" id="id"></td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password" id="pw"></td>
+      </tr>
+    </table>
+  <input type="submit" value="로그인">
+  </fieldset>
+</form>
+
+
+
+</body> 
+</html>

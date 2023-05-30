@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Table Tag</h1> <!-- 행(row)은 tr태그 / 열(col)은 td태그 / 제목은 tHead / 테이블의 상세내용은 tbody-->
+
+<table border="1">
+  <tr>
+    <th>글번호</th>
+    <th>제목</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>경제란?</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>취업난</td>
+  </tr>
+</table>
+
+<hr>
+<table border="1">
+
+<thead>
+<tr>
+  <th>글번호</th>
+  <th>제목</th>
+</tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>1</td>
+    <td>경제</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>정치</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>문화</td>
+  </tr>
+  </tbody>
+
+<tfoot>
+<tr>
+  <td>전화번호</td>
+  <td>02-999-9999</td>
+</tr>
+</tfoot>
+
+
+</table>
+<hr>
+
+<h1>실습~! 수업 시간표 작성하기</h1>
+<!-- 
+  실습01_권유진.html  => 00.share폴더 실습문제 
+  교시 월 화 수 목 금 토 일
+  1교시 국어 영어 수학 .. x x
+  2교시
+  ..
+  8교시
+ -->
+
+<table border="1">
+  <thead>
+<tr>
+  <th>교시</th>
+  <th>월</th>
+  <th>화</th>
+  <th>수</th>
+  <th>목</th>
+  <th>금</th>
+  <th>토</th>
+  <th>일</th>
+</tr>
+  </thead>
+
+<tbody>
+  <tr>
+    <th>1교시</th>
+    <td>국어</td>
+    <td>영어</td>
+    <td>체육</td>
+    <td>수학</td>
+    <td>과학</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>2교시</th>
+    <td>중국어</td>
+    <td>수학</td>
+    <td>영어</td>
+    <td>과학</td>
+    <td>수학</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>3교시</th>
+    <td>체육</td>
+    <td>영어</td>
+    <td>중국어</td>
+    <td>수학</td>
+    <td>국어</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>4교시</th>
+    <td>일본어</td>
+    <td>국어</td>
+    <td>영어</td>
+    <td>과학</td>
+    <td>수학</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>5교시</th>
+    <td>수학</td>
+    <td>일본어</td>
+    <td>체육</td>
+    <td>국어</td>
+    <td>과학</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>6교시</td>
+    <td>체육</td>
+    <td>영어</td>
+    <td>수학</td>
+    <td>일본어</td>
+    <td>과학</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>7교시</th>
+    <td>국어</td>
+    <td>영어</td>
+    <td>체육</td>
+    <td>수학</td>
+    <td>일본어</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>8교시</th>
+    <td>중국어</td>
+    <td>체육</td>
+    <td>과학</td>
+    <td>수학</td>
+    <td>영어</td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+
+
+
+</table>
+
+
+<hr>
+
+<body>
+  <h1>수업시간표 작성하기 colspan , rowspan 사용</h1>
+<table border="1">
+<thead>
+<tr>
+<th>교시</th>
+<th>월</th>
+<th>화</th>
+<th>수</th>
+<th>목</th>
+<th>금</th>
+<th>토</th>
+<th>일</th>
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td>1교시</td>
+<td>국어</td>
+<td rowspan="3">수학</td>
+<td>수학</td>
+<td>수학</td>
+<td>수학</td>
+<td>수학</td>
+<td rowspan="8"></td>
+
+
+</tr>
+<tr>
+  <td>2교시</td>
+  <td>체육</td>
+
+  <td>사회</td>
+  <td>과학</td>
+  <td rowspan="2">영어</td>
+  <td>국어</td>
+  
+  
+</tr>
+<tr>
+  <td>3교시</td>
+  <td>국어</td>
+
+  <td>사회</td>
+  <td>과학</td>
+  
+  <td>체육</td>
+  
+  
+</tr>
+<tr>
+  <td>4교시</td>
+  <td>국어</td>
+  <td>영어</td>
+  <td>역사</td>
+  <td>사회</td>
+  <td>과학</td>
+  <td>체육</td>
+  
+  
+</tr>
+<tr>
+  <td>5교시</td>
+  <td>수학</td>
+  <td>사회</td>
+  <td>영어</td>
+  <td>과학</td>
+  <td>체육</td>
+  <td>도덕</td>
+  
+  
+</tr>
+<tr>
+  <td>6교시</td>
+  <td>영어</td>
+  <td>일본어</td>
+  <td>역사</td>
+  <td>사회</td>
+  <td>과학</td>
+  <td>수학</td>
+  
+  
+</tr>
+<tr>
+  <td>7교시</td>
+  <td>과학</td>
+  <td>국어</td>
+  <td>사회</td>
+  <td>영어</td>
+  <td>과학</td>
+  <td>과학</td>
+  
+  
+</tr>
+<tr>
+  <td>8교시</td>
+  <td colspan="6">동아리</td>
+  
+  
+  
+</tr>
+
+
+</tbody>
+
+
+
+</body>
+</html>
