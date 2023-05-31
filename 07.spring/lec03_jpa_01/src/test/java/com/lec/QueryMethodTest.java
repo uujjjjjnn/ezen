@@ -37,7 +37,7 @@ public class QueryMethodTest {
 //			boardRepository.save(board);
 //		}
 //	}
-	
+//	
 //	@Test
 //	public void testFindByTitle() {
 //		List<Board> boardList = boardRepository.findByTitle("테스트 제목 10");
