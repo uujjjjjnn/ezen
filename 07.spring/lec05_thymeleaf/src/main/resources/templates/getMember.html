@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:align="center">
+		<h1>회원상세보기</h1>
+		<form action="updateMember" method="post">
+		<input type="hidden" name="id" th:value="${member.id}"/>
+			<table th:align="center" border="2" th:cellpadding="0" th:cellspacing="0">
+				<tr>
+					<td bgcolor="navy" style="color:white;" th:text="아이디" width="80"></td>
+					<td bgcolor="lightgray" th:text="${member.id}"></td>
+				</tr>
+				<tr>
+					<td bgcolor="navy" style="color:white;" th:text="비밀번호" width="80"></td>
+					<td><input type="password" name="password" size="80" th:value=${member.password}/></td>
+				</tr>
+				<tr>
+					<td bgcolor="navy" style="color:white;" th:text="이름" width="80"></td>
+					<td><input type="text" name="name" size="80" th:value="${member.name}"/></td>
+				</tr>
+				<tr>
+					<td bgcolor="navy" style="color:white;" th:text="직책" width="80"></td>
+					<td><input type="text" name="role" size="80" th:value="${member.role}"/></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="회원수정" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<a th:href="@{/insertMember}">회원등록</a>&nbsp;&nbsp;&nbsp;
+		<a th:href="@{/deleteMember(id=${member.id})}">회원삭제</a>&nbsp;&nbsp;&nbsp;
+		<a th:href="@{/getMemberList}">글목록</a>
+	</div>
+</body>
+</html>
