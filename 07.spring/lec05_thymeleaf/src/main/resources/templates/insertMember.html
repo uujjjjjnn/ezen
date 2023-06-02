@@ -23,7 +23,13 @@
 				</tr>
 				<tr>
 					<td bgcolor="navy" style="color:white;" th:text="직책" width="80" required></td>
-					<td><input type="text" name="role" size="80" /></td>
+					<td>
+						<select name="role">
+							<option name="role" value="" selected disabled></option>
+							<option name="role" value="USER">USER</option>
+							<option name="role" value="ADMIN">ADMIN</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">

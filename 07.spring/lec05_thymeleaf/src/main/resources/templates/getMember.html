@@ -24,7 +24,14 @@
 				</tr>
 				<tr>
 					<td bgcolor="navy" style="color:white;" th:text="직책" width="80"></td>
-					<td><input type="text" name="role" size="80" th:value="${member.role}"/></td>
+					<!--  <td><input type="text" name="role" size="80" th:value="${member.role}"/></td> -->
+					<td>
+						<select name="role" >
+							<option name="role" th:value="${member.role}" th:text="${member.role}" disabled selected></option>
+							<option name="role" value="USER">USER</option>
+							<option name="role" value="ADMIN">ADMIN</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
@@ -34,7 +41,7 @@
 			</table>
 		</form>
 		<a th:href="@{/insertMember}">회원등록</a>&nbsp;&nbsp;&nbsp;
-		<a th:href="@{/deleteMember(id=${member.id})}">회원삭제</a>&nbsp;&nbsp;&nbsp;
+		<a th:if="${member.role == 'ADMIN'}" th:href="@{/deleteMember(id=${member.id})}">회원삭제</a>&nbsp;&nbsp;&nbsp;
 		<a th:href="@{/getMemberList}">글목록</a>
 	</div>
 </body>
