@@ -1,5 +1,6 @@
 package com.lec.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.lec.domain.Board;
+import com.lec.domain.Member;
 import com.lec.persistence.BoardRepository;
 import com.lec.service.BoardService;
 
@@ -15,48 +17,52 @@ import com.lec.service.BoardService;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	private BoardRepository boardRepository;
-	
-	@Override
-	public long getTotalRowCount(Board board) {
-		return boardRepository.count();
-	}
+	private BoardRepository boardRepo;
 
-	@Override
 	public Board getBoard(Board board) {
-		Optional<Board> findBoard = boardRepository.findById(board.getSeq());
+		Optional<Board> findBoard = boardRepo.findById(board.getSeq());
 		if(findBoard.isPresent())
 			return findBoard.get();
 		else return null;
-	}
+	}	
 
-	@Override
-	public Page<Board> getBoardList(Pageable pageable, String searchType, String searchWord) {
+	public Page<Board> getBoardList(Pageable pageable, String searchType, String searchWord) {		
 		if(searchType.equalsIgnoreCase("title")) {
-			return boardRepository.findByTitleContaining(searchWord, pageable);
+			return boardRepo.findByTitleContaining(searchWord, pageable);
 		} else if(searchType.equalsIgnoreCase("writer")) {
-			return boardRepository.findByWriterContaining(searchWord, pageable);
+			return boardRepo.findByWriterContaining(searchWord, pageable);
 		} else {
-			return boardRepository.findByContentContaining(searchWord, pageable);
+			return boardRepo.findByContentContaining(searchWord, pageable);
 		}
 	}
+    
 
-	@Override
 	public void insertBoard(Board board) {
-		boardRepository.save(board);
+		boardRepo.save(board);
+		boardRepo.updateLastSeq(0L, 0L, board.getSeq());
 	}
 
-	@Override
+
 	public void updateBoard(Board board) {
-		Board findBoard = boardRepository.findById(board.getSeq()).get();
+		Board findBoard = boardRepo.findById(board.getSeq()).get();
+
 		findBoard.setTitle(board.getTitle());
 		findBoard.setContent(board.getContent());
-		boardRepository.save(board);
+		boardRepo.save(findBoard);
+	}
+
+	public void deleteBoard(Board board) {
+		boardRepo.deleteById(board.getSeq());
 	}
 
 	@Override
-	public void deleteBoard(Board board) {
-		boardRepository.deleteById(board.getSeq());
+	public long getTotalRowCount(Board board) {
+		return boardRepo.count();
+	}
+
+	@Override
+	public int updateReadCount(Board board) {
+		return boardRepo.updateReadCount(board.getSeq());
 	}
 
 }

@@ -13,47 +13,43 @@ import com.lec.service.MemberService;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-
-	@Autowired
-	private MemberRepository memberRepository;
 	
-	@Override
+	@Autowired
+	private MemberRepository memberRepo;	
+	
 	public Member getMember(Member member) {
-		Optional<Member> findMember = memberRepository.findById(member.getId());
-		if(findMember.isPresent()) 
+		Optional<Member> findMember = memberRepo.findById(member.getId());
+		if(findMember.isPresent())
 			return findMember.get();
 		else return null;
 	}
 	
-	@Override // https://howtodoinjava.com/spring-boot2/pagination-sorting-example/
-	public Page<Member> getMemberList(Pageable pageable, String searchType, String searchWord) {
-		
-		if(searchType.equalsIgnoreCase("id")) {
-			return memberRepository.findByIdContaining(searchWord, pageable);
-		} else {
-			return memberRepository.findByNameContaining(searchWord, pageable);
-		}
-	}
-	
 	@Override
 	public long getTotalRowCount(Member member) {
-		return memberRepository.count();
+		return memberRepo.count();
 	}
-	
+
+	@Override // https://howtodoinjava.com/spring-boot2/pagination-sorting-example/
+	public Page<Member> getMemberList(Pageable pageable, String searchType, String searchWord) {		
+		if(searchType.equalsIgnoreCase("id")) {
+			return memberRepo.findByIdContaining(searchWord, pageable);
+		} else {
+			return memberRepo.findByNameContaining(searchWord, pageable);
+		}
+	}
+
 	@Override
 	public void insertMember(Member member) {
-		memberRepository.save(member);
+		memberRepo.save(member);
 	}
 	
 	@Override
 	public void deleteMember(Member member) {
-		// 경고메세지 추가해줘야할듯
-		memberRepository.deleteById(member.getId());
+		memberRepo.deleteById(member.getId());
 	}
 
 	@Override
 	public void updateMember(Member member) {
-		memberRepository.save(member);
+		memberRepo.save(member);		
 	}
-
 }

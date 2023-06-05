@@ -33,11 +33,11 @@
 				<div class="input-group-text"><i class="fas fa-address-book"></i></div>
 				<input type="text" name="name" class="form-control" th:value="${ member.name }">
 			</div>
-			
-			<div class="form-check form-switch mb-3">
- 			    <input class="form-check-input" type="checkbox" name="role" th:checked="${ member.role == 'ADMIN' ? 'true' : 'false'}">
-				<label class="form-check-label" for="role">관리자</label>
-			</div>				
+			<div class="col-2 mb-3 form-check start-0">
+ 			    <input type="checkbox" class="form-check-input" name="role" th:checked="${ member.role == 'ADMIN' ? 'true' : 'false'}">
+ 			    <!-- <input type="checkbox" class="form-check-input" name="role" class="input-group-text" id="role" th:field="${member.role}" value="ADMIN"> -->
+			    <label class="form-check-label" for="role">Administrator</label>
+			</div>
 			
 			<div class="container" align="center">
 				<a href="logout" class="btn btn-primary mt-3">logout</a>

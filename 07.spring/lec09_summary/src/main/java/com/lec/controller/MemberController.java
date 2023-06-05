@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -17,31 +18,35 @@ import com.lec.domain.PagingInfo;
 import com.lec.service.MemberService;
 
 @Controller
-@SessionAttributes("pagingInfo")
+@SessionAttributes({"pagingInfo"})
 public class MemberController {
 
 	@Autowired
-	private MemberService memberService;
+	private MemberService memberService;	
 	
 	public PagingInfo pagingInfo = new PagingInfo();
 	
-	@GetMapping("getMemberList") // localhost:8089/getMemberList?curPage=1&rowSizePer=...
-	public String getMemberList(Model model, 
-			@RequestParam(defaultValue = "0") int curPage,
-			@RequestParam(defaultValue = "10") int rowSizePerPage,
-			@RequestParam(defaultValue = "name") String searchType,
-			@RequestParam(defaultValue = "") String searchWord) {
-		
+	@GetMapping("getMemberList")
+	public String getMemberList(Model model,
+			@RequestParam(defaultValue="0") int curPage,
+			@RequestParam(defaultValue="10") int rowSizePerPage,
+			@RequestParam(defaultValue="name") String searchType,
+			@RequestParam(defaultValue="") String searchWord) {   		
+
 		Pageable pageable = PageRequest.of(curPage, rowSizePerPage, Sort.by(searchType).ascending());
 		Page<Member> pagedResult = memberService.getMemberList(pageable, searchType, searchWord);
-		
-		int totalRowCount = pagedResult.getNumberOfElements();
+	
+		int totalRowCount  = pagedResult.getNumberOfElements();
 		int totalPageCount = pagedResult.getTotalPages();
-		int pageSize = pagingInfo.getPageSize();
-		int startPage = curPage / pageSize * pageSize + 1;
-		int endPage = startPage + pageSize +1;
+		int pageSize       = pagingInfo.getPageSize();
+		int startPage      = curPage / pageSize * pageSize + 1;
+		int endPage        = startPage + pageSize - 1;
 		endPage = endPage > totalPageCount ? (totalPageCount > 0 ? totalPageCount : 1) : endPage;
 		
+//		if (endPage > totalPageCount) {
+//			if(totalPageCount > 0) endPage = totalPageCount; else endPage = 1;
+//		} 
+	
 		pagingInfo.setCurPage(curPage);
 		pagingInfo.setTotalRowCount(totalRowCount);
 		pagingInfo.setTotalPageCount(totalPageCount);
@@ -49,8 +54,9 @@ public class MemberController {
 		pagingInfo.setEndPage(endPage);
 		pagingInfo.setSearchType(searchType);
 		pagingInfo.setSearchWord(searchWord);
+		pagingInfo.setRowSizePerPage(rowSizePerPage);
 		model.addAttribute("pagingInfo", pagingInfo);
-		
+
 		model.addAttribute("pagedResult", pagedResult);
 		model.addAttribute("pageable", pageable);
 		model.addAttribute("cp", curPage);
@@ -65,57 +71,51 @@ public class MemberController {
 		return "member/getMemberList";
 	}
 	
-	@GetMapping("insertMember")
+	@GetMapping("/insertMember")
 	public String insertMemberForm(Member member) {
 		return "member/insertMember";
 	}
 	
-	@PostMapping("insertMember")
+	@PostMapping("/insertMember")
 	public String insertMember(Member member) {
-		
-		if(member.getId() == null) {
+		if (member.getId() == null) {
 			return "redirect:login";
-		} 
-		member.setRole(member.getRole() != null ? "ADMIN" : "USER");
+		}
+		member.setRole(member.getRole() != null ? "ADMIN" : "USER");	
 		memberService.insertMember(member);
-		
 		return "redirect:getMemberList";
 	}
 	
 	@GetMapping("deleteMember")
 	public String deleteMember(Member member) {
 		
-		if(member.getId() == null) {
+		System.out.println("1........" + member.toString());
+		
+		if (member.getId() == null) {
 			return "redirect:login";
-		} 
+		}
 		memberService.deleteMember(member);
-		return "redirect:getMemberList";
+		return "forward:getMemberList";		
 	}
-	
+
 	@GetMapping("updateMember")
 	public String updateMember(Member member, Model model) {
-		
-		if(member.getId() == null) {
+		if (member.getId() == null) {
 			return "redirect:login";
-		} 
-		model.addAttribute("member", memberService.getMember(member));
+		}
+		model.addAttribute("member", memberService.getMember(member));	
 		return "member/updateMember";
 	}
 	
 	@PostMapping("updateMember")
 	public String updateMember(Member member) {
-		
-		if(member.getId() == null) {
+		if (member.getId() == null) {
 			return "redirect:login";
 		}
-		
 		member.setRole(member.getRole() != null ? "ADMIN" : "USER");
-		memberService.updateMember(member);
-		
-		return "redirect:getMemberList?curPage=" + pagingInfo.getCurPage() + "&rowSizePerPage=" 
-      				+ pagingInfo.getRowSizePerPage() + "&searchType=" + pagingInfo.getSearchType() 
-      				+ "&searchWord=" + pagingInfo.getSearchWord();
+		memberService.updateMember(member);	
+		return "redirect:getMemberList?curPage=" + pagingInfo.getCurPage() + "&rowSizePerPage=" + pagingInfo.getRowSizePerPage()
+		                           + "&searchType=" + pagingInfo.getSearchType() + "&searchWord=" + pagingInfo.getSearchWord();
 	}
-	
 	
 }

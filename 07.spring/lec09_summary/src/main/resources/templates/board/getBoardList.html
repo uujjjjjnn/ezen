@@ -43,8 +43,8 @@
 				<div class="col-5 btn-group"> 		
 			    	<input type="reset" id="btnReset" class="col-1 btn btn-primary me-2" value="초기화">
 			    	<input type="submit" class="col-1 btn btn-primary me-2" value="Search">
-			    	<a href="insertBoard" class="col-1 btn btn-primary me-2">글등록</a>
-					<a href="logout" class="col-1 btn btn-primary">logout</a>
+			    	<a th:href="insertBoard" class="col-1 btn btn-primary me-2">글등록</a>
+					<a th:href="logout" class="col-1 btn btn-primary">logout</a>
 	        	</div>
 			</div>
 		</form> <!-- getBoardList -->		
@@ -81,13 +81,15 @@
 				</table>
 			</div>	
 		</div> <!-- 게시판 -->	
+	
 
 		<div class="row align-items-start mt-3">
-			<div class="col-2 mb-3">
-		       <a th:if="${session['member'].role == 'ADMIN'}" th:href="@{/getMemberList}" class="btn btn-primary mt-3" >사용자목록</a>
-		    </div>
-		    
-			<ul class="col pagination justify-content-center">	
+
+			<div class="col">
+		       <a th:if="${session['member'].role == 'ADMIN'}" th:href="@{/getMemberList}" class="btn btn-primary btn-sm" >사용자목록</a>
+		    </div>	
+		    	    
+			<ul class="col-9 btn-sm pagination justify-content-center">	
 				<th:block th:if="${sp != 1 }">
 					<li class="page-item"><a th:href="@{/getBoardList(curPage=0, rowSizePerPage=${rp}, searchType=${st}, searchWord=${sw})}" class="page-link"><i class="fas fa-fast-backward"></i></a></li>
 					<li class="page-item"><a th:href="@{/getBoardList(curPage=${sp-ps}, rowSizePerPage=${rp}, searchType=${st}, searchWord=${sw})}" class="page-link"><i class="fas fa-backward"></i></a></li>				
@@ -112,9 +114,10 @@
 				    	</th:block>											
 					</select>
 				</div>
-			</div> <!-- rowSizePerPage -->  	 	
+			</div> <!-- rowSizePerPage -->  
+			 	
 		</div> <!-- 페이징 -->
-		
+				
 	</div> <!-- main  -->
 					
 	<script>

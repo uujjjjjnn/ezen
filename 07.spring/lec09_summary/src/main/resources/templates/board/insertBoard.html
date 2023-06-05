@@ -23,13 +23,13 @@
 			<input type="hidden" name="writer" class="form-control" th:value="${session.member.id}">	
 			<div class="modal-content">				
 				<div class="modal-header bg-primary text-white">
-					<h1 class="motal-title fs-5" id="staticBackdropLabel">게시글등록하기</h1>
+					<h1 class="motal-title fs-5" id="staticBackdropLabel">게시판등록하기</h1>
 				</div> <!-- modal-header -->
 				
 				<div class="modal-body">
 					<div class="input-group mb-3">
 						<div class="input-group-text"><i class="fas fa-pen"></i></div>
-						<input type="text" name="title" class="form-control" id="title" required placeholder="board title....">
+						<input type="text" name="title" class="form-control" id="title" value="글제목" required placeholder="board title....">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-text"><i class="fas fa-user"></i></div>
@@ -38,7 +38,7 @@
 					
 					<div class="input-group mb-3">
 					  <span class="input-group-text"><i class="fas fa-clipboard"></i></span>
-					  <textarea class="form-control"  name="content" rows="5" placeholder="글 상세내용...."></textarea>
+					  <textarea class="form-control"  name="content" rows="15" value="글내용..." placeholder="글 상세내용...."></textarea>
 					</div>
 					
 					<div class="input-group mb-3">

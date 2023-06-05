@@ -31,11 +31,10 @@
 				<div class="input-group-text"><i class="fas fa-address-book"></i></div>
 				<input type="text" name="name" class="form-control" th:value="${ member.getName() }" disabled>
 			</div>
-			<div class="col-2 mb-3 form-check  form-switch start-0">
-			    <input class="form-check-input" type="checkbox" name="role" th:checked="${ member.getRole().toUpperCase() == 'ADMIN'}" disabled>
+			<div class="col-2 mb-3 form-check start-0">
+			    <input type="checkbox" class="form-check-input" name="role" th:checked="${ member.getRole().toUpperCase() == 'ADMIN'}" disabled>
 			    <label class="form-check-label" for="role">Administrator</label>
 			</div>
-			
 		</form>			
 	</div>	
 		

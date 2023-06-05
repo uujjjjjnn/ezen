@@ -18,13 +18,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 
+@EntityListeners(BoardListeners.class)
 @Getter
 @Setter
 @ToString
 @Entity
 public class Board {
 	
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long seq;
 	
 	private String title;
@@ -42,7 +43,18 @@ public class Board {
 	
 	private String fileName;
 	
-	@Transient // 데이터를 전송하고 싶지 않을 경우 사용
+	@Transient
 	private MultipartFile uploadFile;	
 	
+	//@Transient
+	//@Column(columnDefinition = "integer default 0", nullable = true)
+	private Long board_ref;
+	
+	//@Transient
+	//@Column(columnDefinition = "integer default 0", nullable = true)
+	private Long board_lev;
+	
+	//@Transient
+	//@Column(columnDefinition = "integer default 0", nullable = true)
+	private Long board_seq;
 }

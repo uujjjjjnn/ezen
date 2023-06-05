@@ -8,8 +8,7 @@ import com.lec.domain.Member;
 
 public interface MemberRepository extends JpaRepository<Member, String> {
 
-	Page<Member> findByIdContaining(String searchWord, Pageable pageable);
-	Page<Member> findByNameContaining(String searchWord, Pageable pageable);
-
+    Page<Member> findByIdContaining(String id, Pageable pageable);
+    Page<Member> findByNameContaining(String name, Pageable pageable);
 
 }
