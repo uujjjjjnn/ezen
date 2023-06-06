@@ -45,6 +45,8 @@ public class BoardController {
 			@RequestParam(defaultValue="10") int rowSizePerPage,
 			@RequestParam(defaultValue="title") String searchType,
 			@RequestParam(defaultValue="") String searchWord) {
+		
+		model.
 	
 		Pageable pageable = PageRequest.of(curPage, rowSizePerPage, Sort.by("seq").descending());
 		Page<Board> pagedResult = boardService.getBoardList(pageable, searchType, searchWord);
