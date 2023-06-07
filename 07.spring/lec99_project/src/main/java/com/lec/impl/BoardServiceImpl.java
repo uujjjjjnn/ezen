@@ -1,5 +1,7 @@
 package com.lec.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,26 +25,37 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Board getBoard(Board board) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Board> findBoard = boardRepository.findById(board.getSeq());
+		if(findBoard.isPresent())
+			return findBoard.get();
+		else return null;
 	}
 
 	@Override
 	public Page<Board> getBoardList(Pageable pageable, String searchType, String searchWord) {
-		// TODO Auto-generated method stub
-		return null;
+		if(searchType.equalsIgnoreCase("title")) {
+			return boardRepository.findByTitleContaining(searchWord, pageable);
+		} else if(searchType.equalsIgnoreCase("writer")) {
+			return boardRepository.findByWriterContaining(searchWord, pageable);
+		} else {
+			return boardRepository.findByContentContaining(searchWord, pageable);
+		}
 	}
 
 	@Override
 	public void insertBoard(Board board) {
-		// TODO Auto-generated method stub
-		
+		boardRepository.save(board);
 	}
 
 	@Override
 	public void updateBoard(Board board) {
-		// TODO Auto-generated method stub
+		Board findBoard = boardRepository.findById(board.getSeq()).get();
 		
+		findBoard.setTitle(board.getTitle());
+		findBoard.setContent(board.getContent());
+		findBoard.setContentType(board.getContentType());
+		findBoard.setUploadFile(board.getUploadFile());
+		boardRepository.save(board);
 	}
 
 	@Override

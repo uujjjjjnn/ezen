@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<form action="login" method="post" border="2" >
+		<form th:action="getBoardList" method="post" border="2" >
 	<h1 style="height:100px">로그인</h1>
   <div class="form-row">
     <div class="col-md-12 mb-3">
@@ -21,8 +21,8 @@
       <input type="password" class="form-control" id="validationDefault01" name="password" value="" required>
     </div>
   </div>
-  </form>
   <input type="submit" value="login"/>
+  </form>
   </div>
 </body>
 </html>

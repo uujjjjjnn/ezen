@@ -31,6 +31,8 @@ public class Board {
 	
 	private String content;
 	
+	private String contentType;
+	
 	@Column(insertable = false, updatable = false, columnDefinition = "date default now()")
 	private Date createDate;
 	
@@ -41,7 +43,6 @@ public class Board {
 	
 	@Transient
 	private MultipartFile uploadFile;
-	
 	
 	
 	

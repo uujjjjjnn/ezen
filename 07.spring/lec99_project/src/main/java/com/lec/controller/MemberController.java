@@ -1,5 +1,10 @@
 package com.lec.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +33,12 @@ public class MemberController {
 	public String insertMember(Member member) {
 		
 		memberService.insertMember(member);
-		return "";
+		
+		/*
+		 * HttpServletResponse PrintWriter out =
+		 */
+		
+		return "redirect:/";
 	}
 	
 	
