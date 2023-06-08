@@ -1,5 +1,7 @@
 package com.lec.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,20 +19,26 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public long getTotalRowCount(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberRepository.count();
 	}
 
 	@Override
 	public Member getMember(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Member> findMember = memberRepository.findById(member.getId());
+		if(findMember.isPresent())
+			return findMember.get();
+		else return null;
 	}
 
 	@Override
 	public Page<Member> getMemberList(Pageable pageable, String searchType, String searchWord) {
-		// TODO Auto-generated method stub
-		return null;
+		if(searchType.equalsIgnoreCase("nick")) {
+			return memberRepository.findByNickContaining(searchWord, pageable);
+		} else if(searchType.equalsIgnoreCase("role")) {
+			return memberRepository.findByRoleContaining(searchWord, pageable);
+		} else {
+			return memberRepository.findByRegionContaining(searchWord, pageable);
+		}
 	}
 
 	@Override

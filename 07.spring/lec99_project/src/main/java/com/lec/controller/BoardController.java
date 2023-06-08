@@ -3,6 +3,8 @@ package com.lec.controller;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -33,9 +35,9 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@Autowired
-	Environment environment;
+	private Environment environment;
 	
-	public PagingInfo  pagingInfo = new PagingInfo();
+	public PagingInfo pagingInfo = new PagingInfo();
 	
 	@Value("${path.upload}")
 	public String uploadFolder;
@@ -45,13 +47,14 @@ public class BoardController {
 		return new Member();
 	}
 	
-	@RequestMapping("/getBoardList")
+	@GetMapping("/getBoardList")
 	public String getBoardList(Model model,
 			@RequestParam(defaultValue="0") int curPage,
 			@RequestParam(defaultValue="10") int rowSizePerPage,
 			@RequestParam(defaultValue="title") String searchType,
 			@RequestParam(defaultValue="") String searchWord) {
-	
+		
+		
 		Pageable pageable = PageRequest.of(curPage, rowSizePerPage, Sort.by("seq").descending());
 		Page<Board> pagedResult = boardService.getBoardList(pageable, searchType, searchWord);
 		
@@ -82,7 +85,7 @@ public class BoardController {
 		model.addAttribute("tp", totalPageCount);
 		model.addAttribute("st", searchType);
 		model.addAttribute("sw", searchWord);
-		
+
 		return "board/getBoardList";
 	}
 	
@@ -107,6 +110,7 @@ public class BoardController {
 			uploadFile.transferTo(new File(uploadFolder + fileName));
 			board.setFileName(fileName);
 		}
+		board.setMember(member);
 		
 		boardService.insertBoard(board);
 		return "redirect:getBoardList";
@@ -115,7 +119,7 @@ public class BoardController {
 	@GetMapping("/getBoard")
 	public String getBoard(@ModelAttribute("member") Member member, Board board, Model model) {
 		
-		if(member.getId() == null) { return "redirect:login"; }
+		// if(member.getId() == null) { return "redirect:login"; }
 		
 		boardService.updateReadCount(board);
 		model.addAttribute("board", boardService.getBoard(board));
@@ -125,7 +129,7 @@ public class BoardController {
 	@PostMapping("/updateBoard")
 	public String updateBoard(@ModelAttribute("member") Member member, Board board) {
 		
-		if(member.getId() == null) { return "redirect:login"; }
+		// if(member.getId() == null) { return "redirect:login"; }
 		
 		boardService.updateBoard(board);
 		return "forward:getBoardList";

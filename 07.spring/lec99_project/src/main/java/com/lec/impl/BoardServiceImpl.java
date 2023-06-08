@@ -18,12 +18,6 @@ public class BoardServiceImpl implements BoardService {
 	private BoardRepository boardRepository;
 
 	@Override
-	public long getTotalRowCount(Board board) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public Board getBoard(Board board) {
 		Optional<Board> findBoard = boardRepository.findById(board.getSeq());
 		if(findBoard.isPresent())
@@ -35,8 +29,8 @@ public class BoardServiceImpl implements BoardService {
 	public Page<Board> getBoardList(Pageable pageable, String searchType, String searchWord) {
 		if(searchType.equalsIgnoreCase("title")) {
 			return boardRepository.findByTitleContaining(searchWord, pageable);
-		} else if(searchType.equalsIgnoreCase("writer")) {
-			return boardRepository.findByWriterContaining(searchWord, pageable);
+		} else if(searchType.equalsIgnoreCase("memberId")) {
+			return boardRepository.findByMemberIdContaining(searchWord, pageable);
 		} else {
 			return boardRepository.findByContentContaining(searchWord, pageable);
 		}
@@ -60,15 +54,16 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void deleteBoard(Board board) {
-		// TODO Auto-generated method stub
-		
+		boardRepository.deleteById(board.getSeq());
 	}
 
 	@Override
 	public int updateReadCount(Board board) {
-		// TODO Auto-generated method stub
-		return 0;
+		return boardRepository.updateReadCount(board.getSeq());
 	}
 	
-	
+	@Override
+	public long getTotalRowCount(Board board) {
+		return boardRepository.count();
+	}
 }

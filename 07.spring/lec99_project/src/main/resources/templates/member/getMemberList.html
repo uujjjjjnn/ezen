@@ -11,8 +11,7 @@
 </head>
 <body>
 <div class="container" th:align="center">
-	<h3>게시판목록</h3>
-	<h5><font class="bg bg-dark text-white" th:text="|${session['member'].nick}(${session.member.id})|"></font>님 환영합니다</h5>
+	<h3>회원목록</h3>
 </div>
 <!-- navibar -->
 <nav class="navbar navbar-expand-lg bg-light">
@@ -26,21 +25,20 @@
         <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
         <a class="nav-link" th:href="@{login}">자유게시판</a>
         <a class="nav-link" th:href="@{login}">마이페이지</a>
-        <a class="nav-link" th:href="@{/getMemberList}">관리자페이지</a>
       </div>
     </div>
   </div>
 </nav> <!-- navibar -->
 
 <div class="container mt-4 ml-auto mr-auto">
-	<form action="login" method="get">
+	<form action="getMemberList" method="get">
 	<div class="row mt-3 justify-content-center">
 		<div class="col-auto me-1">
 			<select class="form-select" name="searchType" id="searchType">
 				<option value="" disabled>검색</option>
-				<option value="title" th:selected="${st} == 'title'">글제목</option>	
-				<option value="memberNick" th:selected="${st} == 'memberNick'">작성자</option>	
-				<option value="content" th:selected="${st} == 'content'">글내용</option>	
+				<option value="region" th:selected="${st} == 'region'">지역</option>	
+				<option value="role" th:selected="${st} == 'role'">판매/소비</option>	
+				<option value="nick" th:selected="${st} == 'nick'">닉네임</option>	
 			</select>		
 		</div>
 		<div class="col-3 me-1">
@@ -49,38 +47,34 @@
 		<div class="col-5 bm-10">
 			<input type="reset" class="btn btn-outline-warning me-2" value="초기화" />&nbsp;&nbsp;
 			<input type="submit" class="btn btn-outline-success me-2" value="Search" />&nbsp;&nbsp;
-			<a th:href="insertBoard" class="btn btn-success">글등록</a>
+			<a th:href="insertMember" class="btn btn-success">회원등록</a>
 		</div>
 	</div>
 		<table class="table">
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col">글번호</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">작성자</th>
-		      <th scope="col">등록일</th>
-		      <th scope="col">조회수</th>
+		      <th scope="col">아이디</th>
+		      <th scope="col">닉네임</th>
+		      <th scope="col">이름</th>
+		      <th scope="col">지역</th>
+		      <th scope="col">판매/소비</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr th:each="board, state : ${pagedResult.getContent()}">
-		      <th th:text="${board.seq}"></th>
-		      <td>
+		    <tr th:each="member, state : ${pagedResult.getContent()}">
+		      <th th:text="${member.id}"></th>
+<!-- 		      <td>
 		      	<span th:if="${board.contentType == '공지'}" style="background:none;font-size:1em">&#128204;</span>
 		      	<a th:if="${board.contentType == '공지'}" th:href="@{/getBoard(seq=${board.seq})}" th:text="${board.title}"></a>
 		      	<a th:if="${board.contentType != '공지'}" th:href="@{/getBoard(seq=${board.seq})}" th:text="${board.title}"></a>	
 		      		<th:block th:if="${not #strings.isEmpty(board.fileName)}">
 		      		<span style="background:none;font-size:1em">&#128444;</span>
 			      	</th:block>
-		      </td>
-		      	<td th:text="${board.member.nick}"></td>
-		      	<td th:text="${board.createDate}"></td>
-		      <td>
-		      	<th:block th:if="${board.cnt ge 30}">
-			      	<span style="background:none;font-size:1em">&#128293;</span>
-		      	</th:block>
-		      		<span th:text="${board.cnt}"></span>
-		      </td>
+		      </td> -->
+		      	<td th:text="${member.nick}"></td>
+		      	<td th:text="${member.name}"></td>
+		      	<td th:text="${member.region}"></td>
+		      	<td th:text="${member.role}"></td>
 		    </tr>
 		  </tbody>
 		</table>
