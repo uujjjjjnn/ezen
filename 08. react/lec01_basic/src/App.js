@@ -1,0 +1,24 @@
+import './App.css';
+import Title from './components/Title';
+import TodoList from './components/TodoList';
+
+var data = {
+  title: 'Todo List',
+  todos: [
+    { id:1, todo:'1st todo...', done:false},
+    { id:2, todo:'2nd todo...', done:false},
+    { id:3, todo:'3rd todo...', done:true},
+    { id:4, todo:'4th todo...', done:false},
+    { id:5, todo:'5th todo...', done:false}
+  ]
+}
+function App() {
+  return (
+    <div className="App">
+      <Title title={data} />
+    /  <TodoList todos={data.todos}/>
+    </div>
+  );
+}
+
+export default App;
