@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       {/* <Hook01_01useState /> */}
       {/* <Hook01_02useState /> */}
-      {/* Hook02_01useEffect /> */}
-      {/* Hook02_02useEffect /> */}
+      {/* <Hook02_01useEffect /> */}
+      {/* <Hook02_02useEffect /> */}
       
       <Hook03_01useRef />
     </div>

@@ -21,8 +21,8 @@ const Hook01_02useState = () => {
 
   const handleTimeClick = () => {
     const time = new Date();
-    // console.log(time.toLocaleDateString() + " " + time.toLocaleDateString());
-    setNow(time.toLocaleDateString() + " " + time.toLocaleDateString());
+    // console.log(time.toLocaleDateString() + " " + time.toLocaleTimeString());
+    setNow(time.toLocaleDateString() + " " + time.toLocaleTimeString());
   }
 
   const handleOnChange = (e) => {
