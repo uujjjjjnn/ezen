@@ -1,4 +1,5 @@
 import './App.css';
+import Say from './components/Say';
 import Title from './components/Title';
 import TodoList from './components/TodoList';
 
@@ -18,6 +19,10 @@ function App() {
     <div className="App">
       <Title title={data} />
       <TodoList todos={data.todos} />
+      <hr />
+      <Say />
+      
+
     </div>
   );
 }
