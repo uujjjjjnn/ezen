@@ -14,7 +14,7 @@ const data = {
 const Profile = () => {
 
   const params = useParams();
-  const profile = data[params.username]
+  const profile = data[params.username];
   return (
     <div>
       <h1>축구선수 프로필</h1>
