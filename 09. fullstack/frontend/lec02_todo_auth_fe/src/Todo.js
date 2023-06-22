@@ -20,25 +20,26 @@ const Todo = (props) => {
   }
 
   const turnOffReadOnly = () => {
-    setReadOnly(false);  
+    setReadOnly(false);
   }
+  
   const turnOnReadOnly = (e) => {
     if(e.key === 'enter' && readOnly === false) {
       setReadOnly(true);
-      editItem(item)
+      editItem(item);
     }
   }
-
+  
   const editEventHandler = (e) => {
     item.title = e.target.value;
     editItem(item);
     setItem({...item, title: e.target.value});
   }
-
+  
   const deleteEventHendler = () => {
     deleteItem(item);
   }
- 
+  
   return (
     <div>
       <ListItem>

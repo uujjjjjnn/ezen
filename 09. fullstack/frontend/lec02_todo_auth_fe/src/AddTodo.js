@@ -1,15 +1,17 @@
+import { Grid, Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import {Button, Grid, TextField } from '@mui/material';
+
 const AddTodo = (props) => {
 
-  const [item, setItem] = useState({ title: ""});
+  const [item, setItem] = useState({title: ""});
   const addItem = props.addItem;
   // const editItem = props.editItem;
-  // const {addItem, editItem } = props;
+  // const {addItem, editItem} = props;
 
-  const oninputChange = (e) => {
+  const onInputChange = (e) => {
     setItem({title: e.target.value});
-    // console.log(item);
+    console.log(item);
+    
   }
 
   const endKeyEventHandler = (e) => {
@@ -28,16 +30,16 @@ const AddTodo = (props) => {
     <div>
       <Grid container style={{marginTop: 16}}>
         <Grid xs={11} md={11} item style={{paddingRight: 5}}>
-          <TextField placeholder='Todo add....' fullWidth
-            onChange={oninputChange}
+          <TextField placeholder='Todo add...' fullWidth
+            onChange={onInputChange}
             onKeyDown={endKeyEventHandler}
-            value={item.title}
+            value={item.value}
           />
         </Grid>
         <Grid xs={1} md={1} item>
           <Button
             fullWidth
-            style={{ height: '100% '}}
+            style={{height: '100%'}}
             color='secondary'
             variant='outlined'
             onClick={onButtonClick}
@@ -49,5 +51,3 @@ const AddTodo = (props) => {
 };
 
 export default AddTodo;
-
-
